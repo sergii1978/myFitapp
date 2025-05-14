@@ -1,0 +1,21 @@
+<!-- views/about.erb -->
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="<%= t(:about_page_description) %>">
+  <title><%= t(:about_page_title) %></title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <%= erb :layout %>
+  <div class="container mt-5">
+    <h1 class="text-center"><%= t(:about_page_title) %></h1>
+    <p><%= t(:about_page_content) %></p>
+  </div>
+  <%= erb :footer %>
+</body>
+</html>
+

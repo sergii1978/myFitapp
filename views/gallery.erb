@@ -1,0 +1,53 @@
+<!-- views/gallery.erb -->
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="<%= t(:gallery_page_description) %>">
+  <title><%= t(:gallery_page_title) %></title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet">
+</head>
+<body>
+  <%= erb :layout %>
+  <div class="container mt-5">
+    <h1 class="text-center"><%= t(:gallery_page_title) %></h1>
+    <div class="row">
+      <% @images.each do |image| %>
+        <div class="col-md-4 mb-4">
+          <a href="<%= image %>" data-lightbox="gallery" data-title="<%= t(:image_description) %>">
+            <img src="<%= image %>" class="img-fluid" alt="<%= t(:image_description) %>">
+          </a>
+        </div>
+      <% end %>
+    </div>
+    <div class="comments-section mt-5">
+      <h3><%= t(:comments_title) %></h3>
+      <form action="/comments" method="POST">
+        <div class="form-group">
+          <label for="author"><%= t(:comment_author) %></label>
+          <input type="text" id="author" name="author" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="body"><%= t(:comment_body) %></label>
+          <textarea id="body" name="body" class="form-control" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3"><%= t(:submit_comment) %></button>
+      </form>
+      <ul class="list-group mt-4">
+        <% @comments.each do |comment| %>
+          <li class="list-group-item">
+            <strong><%= comment[:author] %>:</strong>
+            <p><%= comment[:body] %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <%= erb :footer %>
+
+  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!-- views/contact.erb -->
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="<%= t(:contact_page_description) %>">
+  <title><%= t(:contact_page_title) %></title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <%= erb :layout %>
+  <div class="container mt-5">
+    <h1 class="text-center"><%= t(:contact_page_title) %></h1>
+    <p class="text-center"><%= t(:contact_page_description) %></p>
+    
+    <form action="/contact" method="POST">
+      <div class="form-group">
+        <label for="name"><%= t(:your_name) %></label>
+        <input type="text" id="name" name="name" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="email"><%= t(:your_email) %></label>
+        <input type="email" id="email" name="email" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="message"><%= t(:your_message) %></label>
+        <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary"><%= t(:send_message) %></button>
+    </form>
+  </div>
+  <%= erb :footer %>
+</body>
+</html>

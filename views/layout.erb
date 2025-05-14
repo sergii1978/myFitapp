@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= t('site.title') %></title>
+  <meta name="description" content="<%= t('site.description') %>">
+  <meta name="keywords" content="fitness, gym, training, workout">
+  <meta name="author" content="Fitness Club">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo"><a href="/"><%= t('site.title') %></a></div>
+      <div class="menu">
+        <a href="/"><%= t('nav.home') %></a>
+        <a href="/about"><%= t('nav.about') %></a>
+        <a href="/services"><%= t('nav.services') %></a>
+        <a href="/trainers"><%= t('nav.trainers') %></a>
+        <a href="/schedule"><%= t('nav.schedule') %></a>
+        <a href="/gallery"><%= t('nav.gallery') %></a>
+        <a href="/contact"><%= t('nav.contact') %></a>
+        <select id="language-toggle">
+          <option value="uk" <%= 'selected' if I18n.locale == :uk %>>UA</option>
+          <option value="en" <%= 'selected' if I18n.locale == :en %>>EN</option>
+        </select>
+        <button id="theme-toggle"><i class="fas fa-adjust"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <%= yield %>
+  </main>
+
+  <footer>
+    <p>&copy; <%= Time.now.year %> <%= t('site.title') %>. <%= t('footer.copyright') %></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

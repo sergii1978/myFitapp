@@ -1,0 +1,55 @@
+<%# views/index.erb %>
+<section class="hero bg-primary text-white text-center py-5">
+  <div class="container">
+    <h1 class="display-4 animate__animated animate__fadeInDown"><%= t(:welcome_title) %></h1>
+    <p class="lead animate__animated animate__fadeInUp"><%= t(:welcome_subtitle) %></p>
+    <a href="#services" class="btn btn-light mt-3 animate__animated animate__fadeInUp"><%= t(:get_started) %></a>
+  </div>
+</section>
+
+<section class="features py-5 text-center">
+  <div class="container">
+    <h2 class="mb-4"><%= t(:our_features) %></h2>
+    <div class="row">
+      <div class="col-md-4 mb-4 animate__animated animate__fadeInUp">
+        <i class="fas fa-dumbbell fa-3x mb-3 text-primary"></i>
+        <h5><%= t(:modern_equipment) %></h5>
+        <p><%= t(:modern_equipment_desc) %></p>
+      </div>
+      <div class="col-md-4 mb-4 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+        <i class="fas fa-user-tie fa-3x mb-3 text-primary"></i>
+        <h5><%= t(:certified_trainers) %></h5>
+        <p><%= t(:certified_trainers_desc) %></p>
+      </div>
+      <div class="col-md-4 mb-4 animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+        <i class="fas fa-clock fa-3x mb-3 text-primary"></i>
+        <h5><%= t(:flexible_schedule) %></h5>
+        <p><%= t(:flexible_schedule_desc) %></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="slider" class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center mb-4"><%= t(:highlight_gallery) %></h2>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <% ['slide1.jpg', 'slide2.jpg', 'slide3.jpg'].each do |img| %>
+          <div class="swiper-slide">
+            <img src="/images/<%= img %>" class="img-fluid rounded" alt="Slide">
+          </div>
+        <% end %>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section text-center py-5">
+  <div class="container">
+    <h3 class="mb-3"><%= t(:join_now_title) %></h3>
+    <p><%= t(:join_now_text) %></p>
+    <a href="/contact" class="btn btn-outline-primary"><%= t(:contact_us) %></a>
+  </div>
+</section>

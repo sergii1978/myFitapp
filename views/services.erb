@@ -1,0 +1,32 @@
+<!-- views/services.erb -->
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="<%= t(:services_page_description) %>">
+  <title><%= t(:services_page_title) %></title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <%= erb :layout %>
+  <div class="container mt-5">
+    <h1 class="text-center"><%= t(:services_page_title) %></h1>
+    <div class="row">
+      <% @services.each do |service| %>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="<%= service[:image_url] %>" class="card-img-top" alt="<%= service[:name] %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= service[:name] %></h5>
+              <p class="card-text"><%= service[:description] %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%= erb :footer %>
+</body>
+</html>
